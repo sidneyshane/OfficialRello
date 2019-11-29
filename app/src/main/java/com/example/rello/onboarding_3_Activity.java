@@ -16,7 +16,7 @@ public class onboarding_3_Activity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(5000);
-                    Intent intent = new Intent(getApplicationContext(), onboarding_3_Activity.class);
+                    Intent intent = new Intent(getApplicationContext(), onboarding_4_Activity.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
