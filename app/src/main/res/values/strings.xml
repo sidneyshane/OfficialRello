@@ -54,4 +54,7 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="john_doe">John Doe</string>
+    <string name="johndoe_rello_com">JohnDoe@rello.com</string>
+    <string name="upcoming_events">Upcoming Events</string>
 </resources>

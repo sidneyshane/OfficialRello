@@ -8,7 +8,7 @@
     tools:context=".home_Activity">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/bottom_toolbar"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="#5D6C85"
@@ -24,9 +24,11 @@
         android:layout_marginLeft="8dp"
         android:background="#0045556B"
         android:tint="#FFC107"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_toolbar"
         app:layout_constraintStart_toEndOf="@+id/groups_btn"
-        app:srcCompat="@android:drawable/sym_action_chat" />
+        app:layout_constraintTop_toTopOf="@+id/bottom_toolbar"
+        app:srcCompat="@android:drawable/sym_action_chat"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/groups_btn"
@@ -34,9 +36,11 @@
         android:layout_height="70dp"
         android:background="#0045556B"
         android:tint="#FFC107"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_toolbar"
         app:layout_constraintStart_toEndOf="@+id/events_btn"
-        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+        app:layout_constraintTop_toTopOf="@+id/bottom_toolbar"
+        app:srcCompat="@android:drawable/ic_menu_myplaces"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/events_btn"
@@ -44,9 +48,11 @@
         android:layout_height="70dp"
         android:background="#0045556B"
         android:tint="#FFC107"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        app:layout_constraintTop_toTopOf="@+id/bottom_toolbar"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/calendar_btn"
@@ -54,11 +60,14 @@
         android:layout_height="70dp"
         android:background="#0045556B"
         android:tint="#FFC107"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/chats_btn"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+        app:layout_constraintTop_toTopOf="@+id/bottom_toolbar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/profile_bg"
@@ -67,7 +76,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/profile_photo"
@@ -79,7 +89,8 @@
         app:layout_constraintStart_toStartOf="@+id/profile_bg"
         app:layout_constraintTop_toTopOf="@+id/profile_bg"
         app:layout_constraintVertical_bias="0.555"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/name"
@@ -87,7 +98,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="120dp"
         android:background="#83030101"
-        android:text="John Doe"
+        android:text="@string/john_doe"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -105,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="#8B000000"
-        android:text="JohnDoe@rello.com"
+        android:text="@string/johndoe_rello_com"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Upcoming Events"
+        android:text="@string/upcoming_events"
         android:textColor="#FFC107"
         android:textSize="18sp"
         android:textStyle="normal|bold"
