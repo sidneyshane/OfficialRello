@@ -27,4 +27,13 @@
     <string name="street">Street</string>
     <string name="by_creating_an_account_you_agree_to_our_terms_and_privacy_policy">By creating an account, you agree to our terms and privacy policy.</string>
     <string name="previous">Previous</string>
+    <string name="discover">Discover</string>
+    <string name="find_local_events_happening_near_you_and_post_your_hosted_events">Find local events happening near you and post your hosted events.</string>
+    <string name="groups">Groups</string>
+    <string name="find_all_of_your_groups_you_can_also_join_other_groups_and_create_your_own_groups_under_this_tab">Find all of your groups. You can also join other groups and create your own groups under this tab.</string>
+    <string name="chat">Chat</string>
+    <string name="chat_with_those_in_your_group">Chat with those in your group.</string>
+    <string name="calendar">Calendar</string>
+    <string name="keep_track_of_events_you_and_your_groups_are_going_to">Keep track of events you and your groups are going to.</string>
+    <string name="let_s_start">Let\'s Start</string>
 </resources>
