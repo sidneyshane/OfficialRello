@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#45556B"
-    tools:context=".groups_Activity">
+    tools:context=".create_groupActivity">
 
     <TextView
         android:id="@+id/bottom_toolbar"
@@ -70,56 +70,113 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView16"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="#FFC107"
-        android:foregroundGravity="center_horizontal"
+        android:layout_height="100dp"
+        android:foregroundGravity="center|center_horizontal"
         android:gravity="center"
-        android:text="@string/your_groups"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:text="@string/group_creation"
+        android:textColor="#FFC107"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/create_group"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="#8BA1CE"
-        android:text="@string/create_group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_group" />
-
-    <Button
-        android:id="@+id/join_group"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:background="#8BA1CE"
-        android:text="@string/join_other_group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/your_current_groups"
+        android:layout_marginTop="20dp"
+        android:text="@string/group_name"
         android:textColor="#FFC107"
         android:textSize="18sp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_group" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/group_name_et"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/description"
+        android:textColor="#FFC107"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_name_et" />
+
+    <EditText
+        android:id="@+id/group_description_et"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/group_profile_photo"
+        android:textColor="#FFC107"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_description_et" />
+
+    <Button
+        android:id="@+id/upload_group_photo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#00FFEB3B"
+        android:text="@string/upload_group_profile_photo"
+        android:textColor="#FFEB3B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <Button
+        android:id="@+id/create_group_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="121dp"
+        android:background="#FFC107"
+        android:text="@string/create_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_group_photo_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

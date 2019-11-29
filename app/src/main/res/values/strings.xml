@@ -57,4 +57,20 @@
     <string name="john_doe">John Doe</string>
     <string name="johndoe_rello_com">JohnDoe@rello.com</string>
     <string name="upcoming_events">Upcoming Events</string>
+    <string name="your_scheduled_events">Your Scheduled Events</string>
+    <string name="your_messages">Your Messages</string>
+    <string name="events">Events</string>
+    <string name="your_groups">Your Groups</string>
+    <string name="join_other_group">Join Other Group</string>
+    <string name="your_current_groups">Your Current Groups</string>
+    <string name="create_group">Create Group</string>
+    <string name="group_creation">Group Creation</string>
+    <string name="group_name">Group Name</string>
+    <string name="description">Description</string>
+    <string name="group_profile_photo">Group Profile Photo</string>
+    <string name="upload_group_profile_photo">Upload group profile photo</string>
+    <string name="create_group">Create Group</string>
+    <string name="search_groups">Search Groups</string>
+    <string name="go">Go</string>
+    <string name="results">Results</string>
 </resources>

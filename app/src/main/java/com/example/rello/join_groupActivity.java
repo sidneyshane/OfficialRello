@@ -5,25 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class groups_Activity extends AppCompatActivity {
+public class join_groupActivity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
-    Button Btn_create, Btn_join;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_groups_);
+        setContentView(R.layout.activity_join_group);
 
         Btn_event = findViewById(R.id.events_btn);
         Btn_group = findViewById(R.id.groups_btn);
         Btn_chat = findViewById(R.id.chats_btn);
         Btn_calendar = findViewById(R.id.calendar_btn);
-        Btn_create = findViewById(R.id.create_group);
-        Btn_join = findViewById(R.id.join_group);
 
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,18 +45,6 @@ public class groups_Activity extends AppCompatActivity {
                 openCalendar();
             }
         });
-        Btn_create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGroupCreation();
-            }
-        });
-        Btn_join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openJoinGroups();
-            }
-        });
     }
 
     public void openEvents(){
@@ -77,16 +61,6 @@ public class groups_Activity extends AppCompatActivity {
     }
     public void openCalendar(){
         Intent intent = new Intent(this, calendar_Activity.class);
-        startActivity(intent);
-    }
-
-    public void openGroupCreation(){
-        Intent intent = new Intent(this, create_groupActivity.class);
-        startActivity(intent);
-    }
-
-    public void openJoinGroups(){
-        Intent intent = new Intent(this, join_groupActivity.class);
         startActivity(intent);
     }
 }
