@@ -26,7 +26,7 @@ public class onboarding_4_Activity extends AppCompatActivity {
 
     }
     public void openHomepage(){
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, home_Activity.class);
         startActivity(intent);
     }
 }
