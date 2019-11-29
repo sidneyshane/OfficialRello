@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".individual_chat_screenActivity"></activity>
+        <activity android:name=".user_informationActivity"></activity>
+        <activity android:name=".individual_chat_screenActivity" />
         <activity android:name=".individual_group_screenActivity" />
         <activity android:name=".join_groupActivity" />
         <activity android:name=".create_groupActivity" />
