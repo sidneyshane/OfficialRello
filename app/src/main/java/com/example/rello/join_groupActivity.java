@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class join_groupActivity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
+    Button Btn_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class join_groupActivity extends AppCompatActivity {
         Btn_group = findViewById(R.id.groups_btn);
         Btn_chat = findViewById(R.id.chats_btn);
         Btn_calendar = findViewById(R.id.calendar_btn);
+        Btn_search = findViewById(R.id.search_btn);
 
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,13 @@ public class join_groupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openCalendar();
+            }
+        });
+        Btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Do search computation here for groups search then return results.
+
             }
         });
     }
