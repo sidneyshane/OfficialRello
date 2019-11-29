@@ -1,10 +1,12 @@
 package com.example.rello.ui.login;
 
+
 import android.app.Activity;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rello.onboarding_1_Activity;
+import com.example.rello.create_account_Activity;
 import com.example.rello.R;
 import com.example.rello.ui.login.LoginViewModel;
 import com.example.rello.ui.login.LoginViewModelFactory;
@@ -29,6 +33,7 @@ import com.example.rello.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    Button Btn_Signup;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,6 +120,15 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+
+            }
+        });
+
+        Btn_Signup = findViewById(R.id.sign_up);
+        Btn_Signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSignUp();
             }
         });
     }
@@ -123,9 +137,20 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        openOnboarding();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    private void openOnboarding(){
+        Intent intent = new Intent(this, onboarding_1_Activity.class);
+        startActivity(intent);
+    }
+
+    private void openSignUp(){
+        Intent intent = new Intent(this, create_account_Activity.class);
+        startActivity(intent);
     }
 }

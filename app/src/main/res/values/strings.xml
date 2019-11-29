@@ -14,4 +14,17 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="full_name">Full Name</string>
+    <string name="e_mail">E-mail</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Continue">Continue</string>
+    <string name="next">Next</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="country_region">Country/Region</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="street">Street</string>
+    <string name="by_creating_an_account_you_agree_to_our_terms_and_privacy_policy">By creating an account, you agree to our terms and privacy policy.</string>
+    <string name="previous">Previous</string>
 </resources>
