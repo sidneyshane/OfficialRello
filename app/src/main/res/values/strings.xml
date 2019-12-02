@@ -70,7 +70,6 @@
     <string name="upload_group_profile_photo">Upload group profile photo</string>
     <string name="create_group">Create Group</string>
     <string name="search_groups">Search Groups</string>
-    <string name="go">Go</string>
     <string name="results">Results</string>
     <string name="user_information">User Information</string>
     <string name="more_functionality_to_come_on_future_updates">More functionality to come on future updates.</string>
@@ -78,4 +77,12 @@
     <string name="go">Go</string>
     <string name="browse">Browse</string>
     <string name="group_information_should_be_shown_here">Group Information should be shown here.</string>
+    <string name="events_creation">Events Creation</string>
+    <string name="event_name">Event Name</string>
+    <string name="date_of_event">Date of Event</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="event_photo">Event Photo</string>
+    <string name="upload_event_photo">Upload Event Photo</string>
+    <string name="create_event">Create Event</string>
+    <string name="create_an_event">Create an event</string>
 </resources>
