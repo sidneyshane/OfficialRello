@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#45556B"
-    tools:context=".chats_Activity">
+    tools:context=".events_chat2Activity">
 
     <TextView
         android:id="@+id/bottom_toolbar"
@@ -103,10 +103,9 @@
         android:id="@+id/group_chat_btn"
         android:layout_width="206dp"
         android:layout_height="35dp"
-        android:background="#9C27B0"
+        android:background="#03A9F4"
         android:text="@string/groups"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -114,12 +113,12 @@
         android:id="@+id/event_chat_btn"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        android:background="#03A9F4"
+        android:background="#9C27B0"
         android:text="@string/events"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/group_chat_btn"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

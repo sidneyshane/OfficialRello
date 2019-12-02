@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class chats_Activity extends AppCompatActivity {
+public class events_chat2Activity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
     Button Btn_group_chat, Btn_event_chat;
@@ -16,7 +16,7 @@ public class chats_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chats_);
+        setContentView(R.layout.activity_events_chat2);
 
         Btn_event = findViewById(R.id.events_btn);
         Btn_group = findViewById(R.id.groups_btn);
