@@ -22,7 +22,7 @@ public class join_groupActivity extends AppCompatActivity {
         Btn_group = findViewById(R.id.groups_btn);
         Btn_chat = findViewById(R.id.chats_btn);
         Btn_calendar = findViewById(R.id.calendar_btn);
-        Btn_search = findViewById(R.id.search_btn);
+        Btn_search = findViewById(R.id.search_group_btn);
 
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
