@@ -77,4 +77,5 @@
     <string name="search_events">Search Events</string>
     <string name="go">Go</string>
     <string name="browse">Browse</string>
+    <string name="group_information_should_be_shown_here">Group Information should be shown here.</string>
 </resources>
