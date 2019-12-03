@@ -36,7 +36,7 @@ import com.sendbird.android.SendBirdException;
 import com.sendbird.android.User;
 
 public class LoginActivity extends AppCompatActivity {
-    final static String APP_ID = "243BA639-D510-4A48-9834-CF82B1ABB4E9";
+    public static final String APP_ID = "243BA639-D510-4A48-9834-CF82B1ABB4E9";
     private LoginViewModel loginViewModel;
     private Button Btn_Signup;
     private Button btnLogin;
@@ -49,9 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
         mPrefs = getSharedPreferences("label", 0);
+        btnLogin = findViewById(R.id.login);
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
-        btnLogin = findViewById(R.id.login);
+
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         SendBird.init(APP_ID, this.getApplicationContext());
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 mEditor.putString("userId", userId).commit();
                 mEditor.putString("password", password).commit();
                 connectToSendBird(userId, password);
+                Toast.makeText(getApplicationContext(),"button clicked", Toast.LENGTH_LONG).show();
             }
         });
 

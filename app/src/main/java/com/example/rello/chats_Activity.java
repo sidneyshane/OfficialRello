@@ -1,17 +1,39 @@
 package com.example.rello;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.sendbird.android.BaseChannel;
+import com.sendbird.android.BaseMessage;
+import com.sendbird.android.GroupChannel;
+import com.sendbird.android.OpenChannel;
+import com.sendbird.android.SendBird;
+import com.sendbird.android.SendBirdException;
+import com.sendbird.android.UserMessage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class chats_Activity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
     Button Btn_group_chat, Btn_event_chat;
+
+    String userID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +83,8 @@ public class chats_Activity extends AppCompatActivity {
                 openEventChat();
             }
         });
+        userID = getIntent().getStringExtra("userID");
+
     }
 
     public void openEvents(){
@@ -68,9 +92,11 @@ public class chats_Activity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openGroups(){
-        Intent intent = new Intent(this, groups_Activity.class);
+        Intent intent = new Intent(chats_Activity.this, groups_Activity.class);
+        intent.putExtra("userID", userID);
         startActivity(intent);
     }
+
     public void openChats(){
         Intent intent = new Intent(this, chats_Activity.class);
         startActivity(intent);
@@ -81,7 +107,8 @@ public class chats_Activity extends AppCompatActivity {
     }
 
     public void openGroupChat(){
-        Intent intent = new Intent(this, chats_Activity.class);
+        Intent intent = new Intent(this, groups_Activity.class);
+        intent.putExtra("userID", userID);
         startActivity(intent);
     }
 
