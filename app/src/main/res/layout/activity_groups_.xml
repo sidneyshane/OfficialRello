@@ -7,6 +7,8 @@
     android:background="#45556B"
     tools:context=".groups_Activity">
 
+
+
     <TextView
         android:id="@+id/bottom_toolbar"
         android:layout_width="0dp"
@@ -121,5 +123,18 @@
         app:layout_constraintHorizontal_bias="0.124"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_group" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/channelListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="196dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
