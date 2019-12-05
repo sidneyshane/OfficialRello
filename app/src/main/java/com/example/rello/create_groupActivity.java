@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class create_groupActivity extends AppCompatActivity {
+import com.google.firebase.firestore.FirebaseFirestore;
 
+public class create_groupActivity extends AppCompatActivity {
+    EditText groupName,groupDescription;
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
     Button Btn_create;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,10 @@ public class create_groupActivity extends AppCompatActivity {
         Btn_chat = findViewById(R.id.chats_btn);
         Btn_calendar = findViewById(R.id.calendar_btn);
         Btn_create = findViewById(R.id.create_group_btn);
+        groupName = findViewById(R.id.group_name_et);
+        groupDescription = findViewById(R.id.group_description_et);
+
+        db = FirebaseFirestore.getInstance();
 
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +60,11 @@ public class create_groupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Do storage of Group Created here
-
+                String nameString = groupName.getText().toString();
+                String descriptionString = groupDescription.getText().toString();
+                Group newGroup = new Group(nameString, descriptionString);
+                db.collection("groups").add(newGroup);
+                startActivity(new Intent(getApplicationContext(), groups_Activity.class));
 
                 openGroups();
             }

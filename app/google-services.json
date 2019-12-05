@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "544625828570",
+    "firebase_url": "https://rello-e1198.firebaseio.com",
+    "project_id": "rello-e1198",
+    "storage_bucket": "rello-e1198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544625828570:android:ae232c0cc7aa63a766bbe3",
+        "android_client_info": {
+          "package_name": "com.example.rello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544625828570-9me1e7ndprltnrddpp3cljakch348tkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjxZXFTLbbClBHDpSIm0E7bdIClGl-b1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544625828570-9me1e7ndprltnrddpp3cljakch348tkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
