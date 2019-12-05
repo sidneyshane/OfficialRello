@@ -6,19 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.rello.ui.login.LoginActivity;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.sendbird.android.GroupChannel;
 import com.sendbird.android.GroupChannelListQuery;
 import com.sendbird.android.SendBird;
@@ -28,17 +21,12 @@ import com.sendbird.android.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class groups_Activity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
     Button Btn_create, Btn_join;
-   // String USER_ID;
+    String USER_ID;
     String CHANNEL_TYPE = Constants.groupChannelType;
-    FirebaseFirestore db;
-    private FirestoreRecyclerAdapter<Group, GroupHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +39,6 @@ public class groups_Activity extends AppCompatActivity {
         Btn_calendar = findViewById(R.id.calendar_btn);
         Btn_create = findViewById(R.id.create_group);
         Btn_join = findViewById(R.id.join_group);
-
-        db = FirebaseFirestore.getInstance();
 
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,53 +77,9 @@ public class groups_Activity extends AppCompatActivity {
             }
         });
 
-       // USER_ID = getIntent().getStringExtra("userID");
-        // init_sendbird();
-        RecyclerView recyclerView = findViewById(R.id.event_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = FirebaseFirestore.getInstance()
-                .collection("events")
-                .limit(50);
-        FirestoreRecyclerOptions<Group> options = new FirestoreRecyclerOptions.Builder<Group>()
-                .setQuery(query, Group.class)
-                .build();
-        adapter = new FirestoreRecyclerAdapter<Group, groups_Activity.GroupHolder>(options) {
-            @Override
-            public void onBindViewHolder(groups_Activity.GroupHolder holder, int position, Group model) {
-                holder.textName.setText(model.getGroupName());
-                holder.textDescription.setText(model.getGroupDescription());
-            }
-
-            @Override
-            public groups_Activity.GroupHolder onCreateViewHolder(ViewGroup group, int i) {
-                // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.message for each item
-                View view = LayoutInflater.from(group.getContext())
-                        .inflate(R.layout.relativelayout, group, false);
-
-                return new groups_Activity.GroupHolder(view);
-            }
-        };
-        recyclerView.setAdapter(adapter);
-
+        USER_ID = getIntent().getStringExtra("userID");
+        init_sendbird();
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        if (adapter != null) {
-            adapter.stopListening();
-        }
-    }
-
-    /*
     @Override
     protected void onResume() {
         super.onResume();
@@ -145,38 +87,33 @@ public class groups_Activity extends AppCompatActivity {
         create_group_channel();
         get_group_channels();
     }
-*/
-    public void openEvents() {
+
+    public void openEvents(){
         Intent intent = new Intent(this, eventsActivity.class);
         startActivity(intent);
     }
-
-    public void openGroups() {
+    public void openGroups(){
         Intent intent = new Intent(this, groups_Activity.class);
         startActivity(intent);
     }
-
-    public void openChats() {
+    public void openChats(){
         Intent intent = new Intent(this, chats_Activity.class);
         startActivity(intent);
     }
-
-    public void openCalendar() {
+    public void openCalendar(){
         Intent intent = new Intent(this, calendar_Activity.class);
         startActivity(intent);
     }
 
-    public void openGroupCreation() {
+    public void openGroupCreation(){
         Intent intent = new Intent(this, create_groupActivity.class);
         startActivity(intent);
     }
 
-    public void openJoinGroups() {
+    public void openJoinGroups(){
         Intent intent = new Intent(this, join_groupActivity.class);
         startActivity(intent);
     }
-
-    /*
     protected void create_group_channel() {
         List<String> userIds = new ArrayList<>();
         userIds.add("1233");
@@ -208,7 +145,7 @@ public class groups_Activity extends AppCompatActivity {
         });
     }
     protected void populate_group_channel_list(List<GroupChannel> list) {
-        RecyclerView rvGroupChannelList = findViewById(R.id.groupList);
+        RecyclerView rvGroupChannelList = findViewById(R.id.channelListRecyclerView);
 
         GroupChannelListAdapter adapter = new GroupChannelListAdapter(list, CHANNEL_TYPE);
         rvGroupChannelList.setAdapter(adapter);
@@ -225,21 +162,7 @@ public class groups_Activity extends AppCompatActivity {
         });
     }
     protected void init_sendbird() {
-        SendBird.init(home_Activity.APP_ID, this);
-    }
-    */
-    public class GroupHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.eventName)
-        TextView textName;
-
-        @BindView(R.id.eventDescription)
-        TextView textDescription;
-
-        public GroupHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-        }
+        SendBird.init(LoginActivity.APP_ID, this);
     }
 }
-
 
