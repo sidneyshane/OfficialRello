@@ -10,7 +10,9 @@ public class Event {
     private boolean hiddenFlag;
     private String eventDate;
 
-    Event(String aName, String aDate, String aDesc, boolean aFlag) {
+    public Event(){}
+
+    public Event(String aName, String aDate, String aDesc, boolean aFlag) {
         setName(aName);
         setEventDate(aDate);
         setDescription(aDesc);
