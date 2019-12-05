@@ -35,7 +35,7 @@ public class groups_Activity extends AppCompatActivity {
 
     ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
     Button Btn_create, Btn_join;
-    String USER_ID;
+   // String USER_ID;
     String CHANNEL_TYPE = Constants.groupChannelType;
     FirebaseFirestore db;
     private FirestoreRecyclerAdapter<Group, GroupHolder> adapter;
@@ -91,7 +91,7 @@ public class groups_Activity extends AppCompatActivity {
             }
         });
 
-        USER_ID = getIntent().getStringExtra("userID");
+       // USER_ID = getIntent().getStringExtra("userID");
         // init_sendbird();
         RecyclerView recyclerView = findViewById(R.id.event_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
