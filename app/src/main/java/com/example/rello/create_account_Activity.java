@@ -18,20 +18,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class create_account_Activity extends AppCompatActivity {
-    EditText email,password;
+    EditText email,password,confirmPassword, displayName;
     Button registerButton,loginButton;
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
-    public void openNext(){
-        Intent intent = new Intent(this, create_account_2_Activity.class);
-        startActivity(intent);
-    }
-    public  void openLogin(){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +34,10 @@ public class create_account_Activity extends AppCompatActivity {
 
         email = (EditText) findViewById(R.id.email_et);
         password = (EditText) findViewById(R.id.password_et);
+        confirmPassword = findViewById(R.id.confirm_pass_et);
         registerButton = (Button) findViewById(R.id.continue_btn);
         loginButton = (Button) findViewById(R.id.login_btn);
-
+        displayName = findViewById(R.id.name_et);
         firebaseAuth = FirebaseAuth.getInstance();
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +45,8 @@ public class create_account_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String emailString = email.getText().toString();
                 String passwordString = password.getText().toString();
+                String confirmPassString = confirmPassword.getText().toString();
+                final String displayNameString = displayName.getText().toString();
 
                 if(TextUtils.isEmpty(emailString)){
                     Toast.makeText(getApplicationContext(),"Please fill in the required fields",Toast.LENGTH_SHORT).show();
@@ -62,11 +60,19 @@ public class create_account_Activity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Password must be at least 6 characters",Toast.LENGTH_SHORT).show();
                 }
 
+                if(!passwordString.equals(confirmPassString)) {
+                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                }
+
                 firebaseAuth.createUserWithEmailAndPassword(emailString,passwordString)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                                    UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(displayNameString).build();
+                                    user.updateProfile(profileUpdate);
                                     startActivity(new Intent(getApplicationContext(),create_account_2_Activity.class));
                                     finish();
                                 }
@@ -85,8 +91,16 @@ public class create_account_Activity extends AppCompatActivity {
             }
         });
 
-        if(firebaseAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),create_account_2_Activity.class));
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser!= null) {
+            startActivity(new Intent(getApplicationContext(), home_Activity.class));
         }
     }
+
 }

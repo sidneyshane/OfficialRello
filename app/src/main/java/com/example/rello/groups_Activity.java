@@ -162,7 +162,7 @@ public class groups_Activity extends AppCompatActivity {
         });
     }
     protected void init_sendbird() {
-        SendBird.init(LoginActivity.APP_ID, this);
+        SendBird.init(home_Activity.APP_ID, this);
     }
 }
 
