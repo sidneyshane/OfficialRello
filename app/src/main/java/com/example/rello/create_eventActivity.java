@@ -39,7 +39,8 @@ public class create_eventActivity extends AppCompatActivity {
                 String descriptionString = description.getText().toString();
                 boolean privEvent = hiddenFlag.isChecked();
                 Event newEvent = new Event(nameString,eventDateString,descriptionString,privEvent);
-                db.collection("events").add(newEvent);
+                DocumentReference inputEvent = db.collection("events").document();
+                inputEvent.set(newEvent);
                 startActivity(new Intent(getApplicationContext(), eventsActivity.class));
             }
         });

@@ -23,7 +23,7 @@ import com.sendbird.android.User;
 
 public class home_Activity extends AppCompatActivity {
     public static final String APP_ID = "243BA639-D510-4A48-9834-CF82B1ABB4E9";
-    ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar;
+    ImageButton Btn_event, Btn_group, Btn_chat, Btn_calendar, setting_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,13 @@ public class home_Activity extends AppCompatActivity {
         Btn_group = findViewById(R.id.groups_btn);
         Btn_chat = findViewById(R.id.chats_btn);
         Btn_calendar = findViewById(R.id.calendar_btn);
-
+        setting_btn = findViewById(R.id.profile_setting_btn);
+        setting_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logOut();
+            }
+        });
         Btn_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,30 +82,39 @@ public class home_Activity extends AppCompatActivity {
                 });
 
 
-
     }
 
-    public void openEvents(){
+    public void openEvents() {
         Intent intent = new Intent(this, eventsActivity.class);
         startActivity(intent);
     }
-    public void openGroups(){
+
+    public void openGroups() {
         Intent intent = new Intent(this, groups_Activity.class);
         startActivity(intent);
     }
-    public void openChats(){
+
+    public void openChats() {
         Intent intent = new Intent(this, chats_Activity.class);
         startActivity(intent);
     }
-    public void openCalendar(){
+
+    public void openCalendar() {
         Intent intent = new Intent(this, calendar_Activity.class);
         startActivity(intent);
     }
 
+    public void logOut() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, splash.class);
+        startActivity(intent);
+        finish();
+    }
 
     /**
      * Attempts to connect a user to SendBird.
-     * @param userId The unique ID of the user.
+     *
+     * @param userId       The unique ID of the user.
      * @param userNickname The user's nickname, which will be displayed in chats.
      */
     private void connectToSendBird(final String userId, final String userNickname) {
@@ -109,7 +124,7 @@ public class home_Activity extends AppCompatActivity {
                 if (e != null) {
                     // Error!
                     Toast.makeText(
-                            getApplicationContext(),"Login to Chat Failed",
+                            getApplicationContext(), "Login to Chat Failed",
                             Toast.LENGTH_SHORT).show();
 
                     // Show login failure snackbar
