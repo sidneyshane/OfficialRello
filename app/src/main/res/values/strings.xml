@@ -87,4 +87,6 @@
     <string name="create_an_event">Create an event</string>
     <string name="memories">Memories</string>
     <string name="private_event">Private Event</string>
+    <string name="send">SEND</string>
+    <string name="enter_message">Enter message</string>
 </resources>
