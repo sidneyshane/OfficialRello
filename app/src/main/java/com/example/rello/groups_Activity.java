@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.rello.ui.login.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.sendbird.android.GroupChannel;
 import com.sendbird.android.GroupChannelListQuery;
 import com.sendbird.android.SendBird;
@@ -77,7 +79,7 @@ public class groups_Activity extends AppCompatActivity {
             }
         });
 
-        USER_ID = getIntent().getStringExtra("userID");
+        USER_ID = FirebaseAuth.getInstance().getUid();
         init_sendbird();
     }
     @Override
@@ -114,11 +116,23 @@ public class groups_Activity extends AppCompatActivity {
         Intent intent = new Intent(this, join_groupActivity.class);
         startActivity(intent);
     }
+    private void updateCurrentUserInfo(String userNickname) {
+        SendBird.updateCurrentUserInfo(userNickname, null, new SendBird.UserInfoUpdateHandler() {
+            @Override
+            public void onUpdated(SendBirdException e) {
+                if (e != null) {
+                    // Error!
+                    return;
+                }
+
+            }
+        });
+    }
     protected void create_group_channel() {
         List<String> userIds = new ArrayList<>();
-        userIds.add("1233");
-        userIds.add("12344");
-        userIds.add("12335");
+        userIds.add(FirebaseAuth.getInstance().getUid());
+        userIds.add("cuf3STVrdLP9iAkeLqtNvcrWVvs1");
+        userIds.add("po62XntEErMns5E5pyyDWi00var2");
         GroupChannel.createChannelWithUserIds(userIds, true, new GroupChannel.GroupChannelCreateHandler() {
             @Override
             public void onResult(GroupChannel groupChannel, SendBirdException e) {
@@ -162,7 +176,7 @@ public class groups_Activity extends AppCompatActivity {
         });
     }
     protected void init_sendbird() {
-        SendBird.init(home_Activity.APP_ID, this);
+        SendBird.init(MainActivity.APP_ID, this);
     }
 }
 

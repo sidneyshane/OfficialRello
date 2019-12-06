@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.rello.ui.login.LoginActivity;
+import com.sendbird.android.SendBird;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String APP_ID = "243BA639-D510-4A48-9834-CF82B1ABB4E9";
     Button Btn_Create, Btn_Login;
 
     @Override
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 openLogin();
             }
         });
+        SendBird.init(APP_ID, this.getApplicationContext());
     }
     public void openAccountCreation(){
         Intent intent = new Intent(this, create_account_Activity.class);

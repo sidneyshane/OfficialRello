@@ -56,7 +56,7 @@ public class GroupChannelListAdapter extends RecyclerView.Adapter<GroupChannelLi
             @Override
             public void onClick(View v ) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, chats_Activity.class);
+                Intent intent = new Intent(context, individual_chat_screenActivity.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putString("channelUrl", channelUrl);
